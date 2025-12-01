@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atelier Chaos – Portail</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Atelier Chaos · Portail</h1>
+    <p>Accès aux trois ateliers indépendants : proies/prédateurs, balayage-bifurcation, Lorenz. Ouvre-les un par un sur téléphone ou ordinateur.</p>
+    <div class="badge">HTML/JS/CSS vanilla · aucun serveur requis</div>
+  </header>
+
+  <div class="main">
+    <section class="section">
+      <h2>Choisir un atelier</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Atelier 1 · Fonction logistique</h3>
+          <p>Un paramètre r, une condition initiale x₀ : convergence, périodicité puis chaos.</p>
+          <div class="button-row"><a href="predator.html"><button>Ouvrir</button></a></div>
+        </div>
+        <div class="card">
+          <h3>Atelier 2 · Diagramme de bifurcation (logistique)</h3>
+          <p>Balayage de r et nuages verticaux des états finaux pour visualiser les bifurcations.</p>
+          <div class="button-row"><a href="bifurcation.html"><button>Ouvrir</button></a></div>
+        </div>
+        <div class="card">
+          <h3>Atelier 3 · Lorenz</h3>
+          <p>Intégration du système de Lorenz et visualisation de l'attracteur étrange (projection x,z).</p>
+          <div class="button-row"><a href="lorenz.html"><button>Ouvrir</button></a></div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Conseils rapides</h2>
+      <ul>
+        <li>Distribue un QR code pointant vers chaque page ou vers ce portail.</li>
+        <li>Smartphone friendly : sliders via boutons +/- ou saisie directe.</li>
+        <li>Pas de backend : ouvre simplement le fichier HTML localement.</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

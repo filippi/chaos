@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lorenz et chaos – Atelier 3</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Atelier 3 · Système de Lorenz et chaos déterministe</h1>
+    <p>Modèle de convection de Rayleigh–Bénard : trois équations couplées pour illustrer la sensibilité aux conditions initiales.</p>
+    <div style="text-align:center; font-size:30px; font-weight:800; margin-top:12px;">
+      <span style="display:block;">dx/dt = σ ( y − x )</span>
+      <span style="display:block;">dy/dt = x ( ρ − z ) − y</span>
+      <span style="display:block;">dz/dt = x y − β z</span>
+    </div>
+  </header>
+
+  <div class="main">
+    <section class="section" id="part3">
+      <h2>Paramètres et intégration</h2>
+      <div class="cards">
+        <div class="card"><strong>σ</strong> (vitesse) : transferts horizontaux de fluide.</div>
+        <div class="card"><strong>ρ</strong> (chauffage) : différence de température, au-delà d’un seuil → chaos.</div>
+        <div class="card"><strong>β</strong> (pertes) : dissipation, rappelle la viscosité/gravité.</div>
+      </div>
+      <div class="controls" style="margin-top:10px;">
+        <div class="control"><label>σ (vitesse)</label><input id="lz-sigma" type="number" step="0.1" value="10"><div class="stepper"><button data-step-target="sigma" data-delta="-0.1">–</button><button data-step-target="sigma" data-delta="0.1">+</button></div></div>
+        <div class="control"><label>ρ (chauffage)</label><input id="lz-rho" type="number" step="0.1" value="28"><div class="stepper"><button data-step-target="rho" data-delta="-0.1">–</button><button data-step-target="rho" data-delta="0.1">+</button></div></div>
+        <div class="control"><label>β (pertes)</label><input id="lz-beta" type="number" step="0.01" value="2.6667"><div class="stepper"><button data-step-target="beta" data-delta="-0.01">–</button><button data-step-target="beta" data-delta="0.01">+</button></div></div>
+        <div class="control small"><label>dt</label><input id="lz-dt" type="number" step="0.001" value="0.01"><div class="stepper"><button data-step-target="dt" data-delta="-0.001">–</button><button data-step-target="dt" data-delta="0.001">+</button></div></div>
+        <div class="control small"><label>Pas</label><input id="lz-steps" type="number" step="100" value="4000"><div class="stepper"><button data-step-target="steps" data-delta="-100">–</button><button data-step-target="steps" data-delta="100">+</button></div></div>
+        <div class="control"><label>x₀ (vitesse)</label><input id="lz-x0" type="number" step="0.1" value="1"><div class="stepper"><button data-step-target="x0" data-delta="-0.1">–</button><button data-step-target="x0" data-delta="0.1">+</button></div></div>
+        <div class="control"><label>y₀ (chauffage)</label><input id="lz-y0" type="number" step="0.1" value="1"><div class="stepper"><button data-step-target="y0" data-delta="-0.1">–</button><button data-step-target="y0" data-delta="0.1">+</button></div></div>
+        <div class="control"><label>z₀ (pertes)</label><input id="lz-z0" type="number" step="0.1" value="1"><div class="stepper"><button data-step-target="z0" data-delta="-0.1">–</button><button data-step-target="z0" data-delta="0.1">+</button></div></div>
+      </div>
+      <div class="button-row"><button id="lz-run">Intégrer</button><span id="lz-note" class="badge" style="border:0; background:transparent;"></span></div>
+      <p style="color:#9ba1a6;">Courbes séparées : vitesse/transfert (x), chauffage/convection (y), pertes/température (z).</p>
+      <div class="canvas-wrap" style="margin-bottom:10px;"><canvas id="lorenz-x"></canvas></div>
+      <div class="canvas-wrap" style="margin-bottom:10px;"><canvas id="lorenz-y"></canvas></div>
+      <div class="canvas-wrap"><canvas id="lorenz-z"></canvas></div>
+      <p style="color:#9ba1a6;">Projection 3D de l'attracteur étrange, colorée pour mettre en valeur le double lobe.</p>
+      <div class="canvas-wrap"><canvas id="lorenz-canvas" style="height:360px;"></canvas></div>
+    </section>
+  </div>
+
+  <script type="module" src="lorenz.js"></script>
+</body>
+</html>
